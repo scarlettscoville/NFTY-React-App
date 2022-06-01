@@ -11,7 +11,7 @@ const get = async (cancelToken) =>{
     if (response.ok){
         categories=response.data.categories
     }else{
-        error = "An unexpected error has occurred. Please try again later."
+        error = "An Unexpected Error has Occured. Please Try again Later."
     }
     return{
         error,
@@ -24,3 +24,19 @@ const post = async (token, catName, cancelToken) => {
     return response.ok
 }
 
+const put = async (token, id, catName, cancelToken)=>{
+    const response = await apiClientTokenAuth(token, cancelToken).put(endpoint+'/'+id,{name:catName})
+    return response.ok
+}
+
+const del = async(token, id, cancelToken)=>{
+    const response = await apiClientTokenAuth(token, cancelToken).delete(endpoint+'/'+id)
+    return response.ok
+}
+
+export default {
+    get,
+    post,
+    put,
+    del
+}

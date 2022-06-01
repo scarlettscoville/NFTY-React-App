@@ -6,8 +6,8 @@ export default function Error({children, style, ...props}) {
             color:"red"
         }
     }
-  
-    return (
-    <div style={{...style.error, ...style}} {...props}>{children}</div>
+
+  return (
+    <div style={{...styles.error, ...style}} {...props}>{children}</div>
   )
 }
